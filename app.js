@@ -27,7 +27,7 @@ function addToTasksArray(input) {
 
 function removeTask(e) {
     const index = tasksArray.findIndex(function(task){
-        return task === e;
+        return task.input === e;
     })
     tasksArray.splice(index,1)
 }

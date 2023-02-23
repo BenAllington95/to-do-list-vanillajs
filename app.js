@@ -13,24 +13,15 @@ document.addEventListener("click", function(e) {
         removeTask(e.target.dataset.delete)
         render()
     } else if (e.target.dataset.complete) {
-        // toggleCompleteButton(e.target.dataset.complete)
-        document.getElementById(e.target.dataset.complete).classList.add('completed')
+        completeTask(e.target.dataset.complete)
+        render()
     }
 })
 
-
-// function toggleCompleteButton (e) {
-    
-//     const index = tasksArray.findIndex(function(task){
-//         return task === e;
-//     })
-//     const taskEls = document.getElementsByClassName('task')
-//     taskEls[index].classList.add('completed')
-// }
-
-
 function addToTasksArray(input) {
-    tasksArray.unshift(input)
+    tasksArray.unshift({
+        input: input,
+        isComplete: false})
     inputVal.value = ""
 }
 
@@ -41,18 +32,24 @@ function removeTask(e) {
     tasksArray.splice(index,1)
 }
 
+function completeTask(e){
+    const index = tasksArray.findIndex(function(task){
+        return task.input === e;
+    })  
+    tasksArray[index].isComplete = !tasksArray[index].isComplete
+} 
+
 function generateHtmlString() {
     let string = "" 
-
     tasksArray.forEach(function(task) {
         string += `
-        <div id="${task}"class="task">
+        <div id="${task.input}"class="task ${task.isComplete ? "completed" : ""}">
             <div class="task-desc">
-                <p>${task}</p>
+                <p>${task.input}</p>
             </div>
             <div class="icons">
-                <i id="${task}"data-complete="${task}"class="fa-solid fa-square-check"></i>
-                <i data-delete="${task}"class="fa-solid fa-trash"></i>
+                <i id="${task.input}"data-complete="${task.input}"class="fa-solid fa-square-check"></i>
+                <i data-delete="${task.input}"class="fa-solid fa-trash"></i>
             </div>
         </div>`
     })

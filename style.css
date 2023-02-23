@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -34,18 +34,19 @@ header {
 }
 
 header h1 {
-    color: #234E70;
+    color: #484b6a;
 }
 
 input {
-    border: 1px solid #234E70;
-    color:#234E70;
+    border: 1px solid #484b6a;
+    color:#484b6a;
     margin: 1em 0;
 }
 
 body {
-    background: whitesmoke;
+    background: #fafafa;
 }
+
 
 
 input, button {
@@ -59,7 +60,7 @@ input, button {
 
 button {
     border: none;
-    background: #234E70;
+    background: #484b6a;
     color: whitesmoke; 
     font-weight: 700;
     cursor: pointer;
@@ -73,18 +74,14 @@ button:hover {
 
 .task {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
-    background: white;
+    background: #e4e5f1;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;
-}
-
-.task:first-child {
-    margin-top: 1em;
 }
 
 .task-desc {
@@ -96,12 +93,12 @@ button:hover {
     padding: 0.5em 1em;
     font-size: 1.25rem;
     font-weight: 400;
-    color: #234E70;
+    color: #484b6a;
     line-height: 1.5;
 }
 
 .icons {
-    color: #234E70;
+    color: #484b6a;
     margin-right: 1em;
     font-size: 1.5rem;
 }
@@ -137,6 +134,10 @@ i {
         font-size: 1rem;
     }
 
+    .task {
+        max-width: 100%;
+    }
+
     .header-items {
         display: flex;
         align-items: center;
@@ -144,8 +145,8 @@ i {
     }
 
     input {
-        width: 50%;
         margin-right: 0.5em;
+        max-width: 70%;
     }
 
     input,
@@ -154,8 +155,8 @@ i {
     }
 
     button {
-        width: 20%;
-        border: 1px solid #234E70;
+        width: 30%;
+        border: 1px solid #484b6a;
     }
 
 }
